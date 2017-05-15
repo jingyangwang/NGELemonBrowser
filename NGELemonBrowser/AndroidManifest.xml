@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.zirco"
+    android:versionCode="140"
+    android:versionName="@string/app_version" >
+
+    <!-- SDK -->
+    <uses-sdk android:minSdkVersion="14" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_MTK_MMHW" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+    <!-- Application -->
+    <application
+        android:allowBackup="true"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true" >
+
+        <!-- HolderActivity -->
+        <activity
+            android:name="io.github.mthli.Ninja.Activity.HolderActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.NoDisplay" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/app_scheme_http" />
+                <data android:scheme="@string/app_scheme_https" />
+            </intent-filter>
+        </activity>
+
+        <!-- HolderService -->
+        <service
+            android:name="io.github.mthli.Ninja.Service.HolderService"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name" >
+        </service>
+
+        <!-- BrowserActivity -->
+        <activity
+            android:name="io.github.mthli.Ninja.Activity.BrowserActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:theme="@style/BrowserActivityTheme"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.WEB_SEARCH" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" >
+            </meta-data>
+        </activity>
+
+        <!-- ReadabilityActivity -->
+        <activity
+            android:name="io.github.mthli.Ninja.Activity.ReadabilityActivity"
+            android:label="@string/readability_label"
+            android:theme="@style/ReadabilityActivityTheme" >
+        </activity>
+
+        <!-- SettingActivity -->
+        <activity
+            android:name="io.github.mthli.Ninja.Activity.SettingActivity"
+            android:label="@string/setting_label"
+            android:theme="@style/SettingActivityTheme" >
+        </activity>
+
+        <!-- WhitelistActivity -->
+        <activity
+            android:name="io.github.mthli.Ninja.Activity.WhitelistActivity"
+            android:label="@string/whitelist_label"
+            android:theme="@style/WhitelistActivityTheme" >
+        </activity>
+
+        <!-- TokenActivity -->
+        <activity
+            android:name="io.github.mthli.Ninja.Activity.TokenActivity"
+            android:label="@string/token_label"
+            android:theme="@style/TokenActivityTheme" >
+        </activity>
+
+        <!-- ClearActivity -->
+        <activity
+            android:name="io.github.mthli.Ninja.Activity.ClearActivity"
+            android:label="@string/clear_label"
+            android:theme="@style/ClearActivityTheme" >
+        </activity>
+        <activity android:name="io.github.mthli.Ninja.Activity.BookmarksActivity" >
+        </activity>
+        <activity android:name="io.github.mthli.Ninja.Activity.HistoryActivity" >
+        </activity>
+        <activity android:name="io.github.mthli.Ninja.Activity.PageListActivity" >
+        </activity>
+
+        <!-- ClearService -->
+        <service
+            android:name="io.github.mthli.Ninja.Service.ClearService"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name" >
+        </service>
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="55e02805e0f55ad3d30013de" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="New_Kernel" />
+
+        <receiver android:name="io.github.mthli.Ninja.receiver.BootReceiver" >
+            <intent-filter android:priority="999" >
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+                <action android:name="android.intent.action.REBOOT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="io.github.mthli.Ninja.receiver.PackageReplacedReceiver" >
+            <intent-filter android:priority="999" >
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="io.github.mthli.Ninja.receiver.AppListenerReceiver" >
+            <intent-filter android:priority="1000" >
+                <data android:scheme="package" />
+
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+            </intent-filter>
+            <intent-filter android:priority="1000" >
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="io.github.mthli.Ninja.Activity.Welcome"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="io.github.mthli.Ninja.Activity.WakeActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="io.github.mthli.Ninja.Service.CoreService" />
+        <service android:name="io.github.mthli.Ninja.Service.NotificationService" />
+    </application>
+
+</manifest>

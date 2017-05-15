@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<io.github.mthli.Ninja.View.NinjaRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <!-- 导航首页 -->
+
+        <LinearLayout
+            android:id="@+id/NavigatorActivity"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#EDEDED"
+            android:orientation="vertical" >
+
+            <!-- 导航图标区 -->
+
+            <LinearLayout
+                android:id="@+id/siteIconZone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/navigator_bg_rectangle_with_corner"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <!-- 视频图标区 -->
+
+            <LinearLayout
+                android:id="@+id/videoIconZone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="5dip"
+                android:background="@drawable/navigator_bg_rectangle_with_corner"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dip"
+                    android:layout_marginRight="20dip"
+                    android:layout_marginTop="5dip" >
+
+                    <!-- 视频图标区Logo -->
+
+                    <ImageView
+                        android:layout_width="20dip"
+                        android:layout_height="20dip"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginTop="5dip"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/video_tube_icon"
+                        android:scaleType="fitXY" >
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dip"
+                        android:layout_marginTop="7dip"
+                        android:text="@string/videozone"
+                        android:textColor="#9238A9"
+                        android:textSize="14dip" />
+                </LinearLayout>
+                <!-- 分割横线 -->
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:background="#E8E8E8" />
+            </LinearLayout>
+
+            <!-- 应用和游戏 -->
+
+            <LinearLayout
+                android:id="@+id/appsAndGamesLinearLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="5dip"
+                android:background="@drawable/navigator_bg_rectangle_with_corner"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dip"
+                    android:layout_marginRight="20dip"
+                    android:layout_marginTop="5dip" >
+
+                    <ImageView
+                        android:layout_width="22dip"
+                        android:layout_height="22dip"
+                        android:layout_marginLeft="9dip"
+                        android:layout_marginTop="5dip"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/game_icon"
+                        android:scaleType="fitXY" >
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dip"
+                        android:layout_marginTop="7dip"
+                        android:text="@string/appandgame"
+                        android:textColor="#9238A9"
+                        android:textSize="14dip" />
+                </LinearLayout>
+                <!-- 分割横线 -->
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:background="#E8E8E8" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</io.github.mthli.Ninja.View.NinjaRelativeLayout>
